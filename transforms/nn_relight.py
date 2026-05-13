@@ -1,7 +1,7 @@
-from base import BaseRelightTransform
+from .base import BaseRelightTransform
 from utils.defineHourglass_512_gray_skip import *
 from utils.utils_SH import *
-import numbers as np
+import numpy as np
 import cv2
 import os
 
@@ -10,14 +10,10 @@ class NNRelight(BaseRelightTransform):
     def __init__(self):
         pass
     
-    def __call__(self, image, **kwargs):
-        self.__apply_transform(kwargs)
-        # model_folder="trained_model/",
-        #                           lightFolder="candidiate_config/candidate1",
-        #                           saveFolder="candidiate_config/candidate1/result",
-        #                           img="obama.jpg"
+    def __call__(self, **kwargs):
+        self._apply_transform(**kwargs)
                                   
-    def __apply_transform(self, img: str, model_folder: str, save_folder: str, light_configs: str):
+    def _apply_transform(self, img: str, model_folder: str, save_folder: str, light_configs: str):
         x = np.linspace(-1, 1, NNRelight.IMG_SIZE)
         z = np.linspace(1, -1, NNRelight.IMG_SIZE)
         x, z = np.meshgrid(x, z)

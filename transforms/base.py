@@ -9,5 +9,5 @@ class BaseRelightTransform(ABC):
         pass
     
     @abstractmethod
-    def __apply_transform(self):
+    def _apply_transform(self):
         pass
