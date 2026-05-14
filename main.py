@@ -1,5 +1,6 @@
 from transforms.nn_relight import NNRelight
 from transforms.filter_relight import FilterRelight
+from transforms.threshold_relight import ThresholdRelight
 import cv2
 
 
@@ -9,6 +10,10 @@ def main():
 
     filter_relight = FilterRelight(image_sourc="data/obama.jpg", image_target="data/rotate_light_06.jpg")
     filter_relight(save_folder=".", source_image=cv2.imread("data/obama.jpg"))
+    
+    # thresholdrelight = ThresholdRelight(image_sourc="data/obama.jpg", image_target="data/rotate_light_06.jpg", threshold=1.0)
+    # result = thresholdrelight(source_image=cv2.imread("data/obama.jpg"))
+    # cv2.imwrite("./result.jpg", result)
     
 if __name__:
     main()
