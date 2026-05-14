@@ -11,7 +11,7 @@ class FilterRelight(BaseRelightTransform):
             img_x = cv2.imread(image_sourc)
             img_y = cv2.imread(image_target)
             FilterRelight.GAIN_FILTER, _ = self.__create_lighting_filter(img_x, img_y)
-            FilterRelight.GAIN_FILTER = self.__apply_darkening_from_gain(smooth_gain=FilterRelight.GAIN_FILTER)
+            FilterRelight.GAIN_FILTER = self.__apply_darkening_from_gain(smooth_gain=FilterRelight.GAIN_FILTER, shadow_strength=0.7)
         except RuntimeError as error:
             print(f"{error}")
         except FileExistsError as error:
